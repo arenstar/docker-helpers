@@ -41,10 +41,8 @@ function clean_images {
     echo ""
 }
 
-function get_container_id {
-
+function get_container_id {
     docker ps | grep ${CONTAINER_NAME} | awk '{print $1}'
-
 }
 
 function get_application_port {
