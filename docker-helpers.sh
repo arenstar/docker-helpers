@@ -42,6 +42,8 @@ function clean_images {
 }
 
 function get_container_id {
+
+    echo ">>> Getting Container ID for ${CONTAINER_ID}"
     docker ps | grep ${CONTAINER_NAME} | awk '{print $1}'
 }
 
@@ -64,7 +66,7 @@ function update_container {
 
     if [ -z "$TAG" ] || [ -z "CONTAINER_NAME" ] || [ -z "$REGISTRY_URL" ]; then syntax; exit 1; fi
 
-    echo ""
+    echo "Updating Container ${CONTAINER_NAME}"
     CURRENT_IMAGE_ID=`docker images | grep -w ${CONTAINER_NAME} | awk '{ print $3 }'`
     docker pull ${REGISTRY_URL}:${TAG}
     NEW_IMAGE_ID=`docker images | grep -w ${CONTAINER_NAME} | awk '{ print $3 }'`
