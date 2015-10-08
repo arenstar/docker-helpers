@@ -12,7 +12,7 @@ function syntax {
 
 function upload_pypi {
     echo ">>> Uploading to PyPi"
-    python setup.py bdist_wheel upload -r internal
+    python3 setup.py bdist_wheel upload -r internal
     if [ $? != 0 ]; then
 	echo ""
         echo ">>> COMMAND: python setup.py bdist_wheel upload -r internal FAILED"
